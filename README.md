@@ -69,8 +69,11 @@ Any command outside the native built-in list (such as `git`, `python`, `gcc`, `m
 
 ```text
 myshell/
-├── Makefile                # Automated build script
+├── Makefile                # Automated build script (creates build/ dir)
 ├── README.md               # Documentation & architectural manual
+├── build/                  # Intermediate object files (.o) [Cleanly separated]
+│   ├── *.o
+│   └── builtins/*.o
 ├── include/
 │   ├── shell.h             # Shell state & lifecycle definitions
 │   ├── ui.h                # Prompt rendering & ANSI color codes
@@ -90,7 +93,10 @@ myshell/
         ├── builtin_ls.c        # Custom colorized directory lister (-l, -a)
         ├── builtin_cat.c       # Custom file viewer (-n)
         ├── builtin_fileops.c   # mkdir, touch
-        └── builtin_sysinfo.c   # Custom neofetch system dashboard
+        ├── builtin_sysinfo.c   # Custom neofetch system dashboard
+        ├── builtin_lscpu.c     # Native /proc/cpuinfo hardware reader
+        ├── builtin_top.c       # Native live /proc process & memory monitor
+        └── builtin_nano.c      # Native interactive full-screen text editor
 ```
 
 ---

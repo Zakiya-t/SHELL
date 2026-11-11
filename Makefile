@@ -1,6 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -std=c11 -Iinclude -D_POSIX_C_SOURCE=200809L
 TARGET = myshell
+BUILD_DIR = build
 
 SRCS = src/main.c \
        src/shell.c \
@@ -17,17 +18,19 @@ SRCS = src/main.c \
        src/builtins/builtin_top.c \
        src/builtins/builtin_nano.c
 
-OBJS = $(SRCS:.c=.o)
+# Map each src/%.c to build/%.o
+OBJS = $(patsubst src/%.c, $(BUILD_DIR)/%.o, $(SRCS))
 
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
 
-%.o: %.c
+$(BUILD_DIR)/%.o: src/%.c
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(TARGET) $(TARGET).exe
+	rm -rf $(BUILD_DIR) $(TARGET) $(TARGET).exe
 
 .PHONY: all clean

@@ -40,18 +40,18 @@ void ui_render_prompt(const ShellState *state)
     fflush(stdout);
 }
 
-void ui_print_banner(void)
-{
-    printf("%s%s=======================================================%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
-    printf("%s%s   __  __       ____  _          _ _                  %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
-    printf("%s%s  |  \\/  |_   _/ ___|| |__   ___| | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
-    printf("%s%s  | |\\/| | | | \\___ \\| '_ \\ / _ \\ | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
-    printf("%s%s  | |  | | |_| |___) | | | |  __/ | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
-    printf("%s%s  |_|  |_|\\__, |____/|_| |_|\\___|_|_|  v%s         %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, SHELL_VERSION, COLOR_RESET);
-    printf("%s%s          |___/                                        %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
-    printf("%s%s  A Modern, Modular Monolithic Shell                   %s\n", COLOR_DIM, COLOR_WHITE, COLOR_RESET);
-    printf("%s%s  Type %s'help'%s%s to list built-ins, or %s'sysinfo'%s%s for dashboard.%s\n", 
-           COLOR_DIM, COLOR_WHITE, COLOR_BOLD, COLOR_RESET, COLOR_DIM, COLOR_BOLD, COLOR_RESET, COLOR_DIM, COLOR_RESET);
-    printf("%s%s=======================================================%s\n\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
-}
+// void ui_print_banner(void)
+// {
+//     printf("%s%s=======================================================%s\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+//     printf("%s%s   __  __       ____  _          _ _                  %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
+//     printf("%s%s  |  \\/  |_   _/ ___|| |__   ___| | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
+//     printf("%s%s  | |\\/| | | | \\___ \\| '_ \\ / _ \\ | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
+//     printf("%s%s  | |  | | |_| |___) | | | |  __/ | |                 %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
+//     printf("%s%s  |_|  |_|\\__, |____/|_| |_|\\___|_|_|  v%s         %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, SHELL_VERSION, COLOR_RESET);
+//     printf("%s%s          |___/                                        %s\n", COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET);
+//     printf("%s%s  A Modern, Modular Monolithic Shell                   %s\n", COLOR_DIM, COLOR_WHITE, COLOR_RESET);
+//     printf("%s%s  Type %s'help'%s%s to list built-ins, or %s'sysinfo'%s%s for dashboard.%s\n", 
+//            COLOR_DIM, COLOR_WHITE, COLOR_BOLD, COLOR_RESET, COLOR_DIM, COLOR_BOLD, COLOR_RESET, COLOR_DIM, COLOR_RESET);
+//     printf("%s%s=======================================================%s\n\n", COLOR_BOLD, COLOR_CYAN, COLOR_RESET);
+// }
 

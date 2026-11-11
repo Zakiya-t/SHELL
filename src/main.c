@@ -12,7 +12,6 @@ int main(void)
     ShellState state;
     shell_state_init(&state);
 
-    ui_print_banner();
 
     char input[MAX_INPUT_SIZE];
 
