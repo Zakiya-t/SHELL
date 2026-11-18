@@ -23,7 +23,6 @@
 
 /* UI Rendering Functions */
 void ui_render_prompt(const ShellState *state);
-void ui_print_banner(void);
 
 #endif
 
