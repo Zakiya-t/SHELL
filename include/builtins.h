@@ -30,6 +30,7 @@ int builtin_type(int argc, char **argv, ShellState *state);
 int builtin_help(int argc, char **argv, ShellState *state);
 int builtin_lscpu(int argc, char **argv, ShellState *state);
 int builtin_top(int argc, char **argv, ShellState *state);
+int builtin_ps(int argc, char **argv, ShellState *state);
 int builtin_nano(int argc, char **argv, ShellState *state);
 int builtin_exit(int argc, char **argv, ShellState *state);
 

@@ -155,6 +155,7 @@ static const BuiltinCommand BUILTINS[] = {
     {"sysinfo", builtin_sysinfo, "Display modern system information",     "sysinfo"},
     {"lscpu",   builtin_lscpu,   "Query CPU architecture from /proc/cpuinfo", "lscpu"},
     {"top",     builtin_top,     "Live kernel process & memory monitor",      "top [-n iterations]"},
+    {"ps",      builtin_ps,      "Report live process snapshot from /proc",   "ps"},
     {"echo",    builtin_echo,    "Display a line of text",                "echo [-n] [string...]"},
     {"clear",   builtin_clear,   "Clear the terminal screen",             "clear"},
     {"history", builtin_history, "Display command history",               "history"},

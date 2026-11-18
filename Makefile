@@ -16,6 +16,7 @@ SRCS = src/main.c \
        src/builtins/builtin_sysinfo.c \
        src/builtins/builtin_lscpu.c \
        src/builtins/builtin_top.c \
+       src/builtins/builtin_ps.c \
        src/builtins/builtin_nano.c
 
 # Map each src/%.c to build/%.o

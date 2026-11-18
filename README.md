@@ -45,6 +45,7 @@ MyShell contains its own handcrafted suite of native tools written from scratch:
 | **`sysinfo`** | `sysinfo` | Modern system dashboard (like `neofetch`/`fastfetch`) displaying OS, Arch, Host, Kernel, CWD, and color palette. |
 | **`lscpu`** | `lscpu` | Native Linux kernel reader querying `/proc/cpuinfo` directly for model, MHz, cores, caches, and VT-x/AMD-V virtualization. |
 | **`top`** | `top [-n iterations]` | Native live kernel process & memory monitor querying `/proc/stat`, `/proc/meminfo`, and `/proc/[pid]/`. |
+| **`ps`** | `ps` | Native process snapshot reader querying `/proc/[pid]/stat`, `/proc/[pid]/cmdline`, and `/proc/[pid]/status`. |
 | **`cd`** | `cd [dir \| ~ \| -]` | Directory switcher supporting home (`~`), previous directory (`-`), and relative/absolute paths. |
 | **`pwd`** | `pwd` | Displays current working directory. |
 | **`mkdir`** | `mkdir <dir...>` | Native directory creator. |
