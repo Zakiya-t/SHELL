@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef _WIN32
+#include <sys/resource.h>
+#endif
 #include "shell.h"
 #include "ui.h"
 #include "lexer.h"
@@ -48,6 +51,16 @@ int main(void)
         } else {
             state.last_exit_code = 2; /* Syntax error code */
         }
+
+#ifndef _WIN32
+        if (state.telemetry_enabled) {
+            struct rusage ru;
+            getrusage(RUSAGE_CHILDREN, &ru);
+            printf("%s[ ⚡ Exit: %d | 💾 RAM: %ld KB | 🔄 Context Switches: %ld | 📄 Page Faults: %ld ]%s\n",
+                   COLOR_CYAN, state.last_exit_code, ru.ru_maxrss,
+                   ru.ru_nvcsw + ru.ru_nivcsw, ru.ru_minflt, COLOR_RESET);
+        }
+#endif
 
         lexer_free(&tokens);
     }

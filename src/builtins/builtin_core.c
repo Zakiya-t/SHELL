@@ -160,8 +160,12 @@ static const BuiltinCommand BUILTINS[] = {
     {"clear",   builtin_clear,   "Clear the terminal screen",             "clear"},
     {"history", builtin_history, "Display command history",               "history"},
     {"type",    builtin_type,    "Display command classification",        "type <command>"},
-    {"help",    builtin_help,    "Show help manual for built-ins",        "help"},
-    {"exit",    builtin_exit,    "Exit MyShell",                          "exit [status]"},
+    {"help",        builtin_help,        "Show help manual for built-ins",        "help"},
+    {"sched-run",   builtin_sched_run,   "Execute jobs using custom CPU scheduler", "sched-run <fcfs|rr|priority> [args]"},
+    {"sched-bench", builtin_sched_bench, "Benchmark & compare scheduling policies", "sched-bench [workload_size]"},
+    {"inspect",     builtin_inspect,     "Expose Linux kernel subsystem decisions", "inspect <command>"},
+    {"telemetry",   builtin_telemetry,   "Toggle live kernel resource telemetry badge", "telemetry [on|off]"},
+    {"exit",        builtin_exit,        "Exit MyShell",                          "exit [status]"},
 };
 
 static const int NUM_BUILTINS = sizeof(BUILTINS) / sizeof(BUILTINS[0]);
@@ -179,10 +183,7 @@ int builtin_help(int argc, char **argv, ShellState *state)
     (void)argv;
     (void)state;
 
-    printf("\n%s%sMyShell%s - A Modern Modular Monolithic Shell (v%s)\n",
-           COLOR_BOLD, COLOR_BRIGHT_CYAN, COLOR_RESET, SHELL_VERSION);
-    printf("Inspired by modern shells like Fish, built from scratch in C.\n\n");
-    printf("%sBuilt-in Command Suite:%s\n", COLOR_BOLD, COLOR_RESET);
+    printf("\n%sBuilt-in Command Suite:%s\n", COLOR_BOLD, COLOR_RESET);
 
     for (int i = 0; i < NUM_BUILTINS; i++) {
         printf("  %s%-10s%s %-32s %s(%s)%s\n",

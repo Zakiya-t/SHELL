@@ -15,6 +15,7 @@
 typedef struct {
     int last_exit_code;
     bool is_running;
+    bool telemetry_enabled;
     char current_dir[1024];
     char prev_dir[1024];
     char **history;

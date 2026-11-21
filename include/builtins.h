@@ -32,6 +32,10 @@ int builtin_lscpu(int argc, char **argv, ShellState *state);
 int builtin_top(int argc, char **argv, ShellState *state);
 int builtin_ps(int argc, char **argv, ShellState *state);
 int builtin_nano(int argc, char **argv, ShellState *state);
+int builtin_sched_run(int argc, char **argv, ShellState *state);
+int builtin_sched_bench(int argc, char **argv, ShellState *state);
+int builtin_inspect(int argc, char **argv, ShellState *state);
+int builtin_telemetry(int argc, char **argv, ShellState *state);
 int builtin_exit(int argc, char **argv, ShellState *state);
 
 /* Builtin dispatcher interface */

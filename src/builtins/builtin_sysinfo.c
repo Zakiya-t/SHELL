@@ -5,6 +5,7 @@
 #include "ui.h"
 
 #ifndef _WIN32
+#include <unistd.h>
 #include <sys/utsname.h>
 #endif
 
@@ -144,11 +145,19 @@ int builtin_sysinfo(int argc, char **argv, ShellState *state)
 #endif
     if (!user) user = "user";
 
-    const char *host = getenv("HOSTNAME");
-#ifdef _WIN32
-    if (!host) host = getenv("COMPUTERNAME");
+    char host[128] = "localhost";
+#ifndef _WIN32
+    if (gethostname(host, sizeof(host)) != 0 || strlen(host) == 0) {
+        struct utsname un_h;
+        if (uname(&un_h) == 0) {
+            strncpy(host, un_h.nodename, sizeof(host) - 1);
+        }
+    }
+#else
+    const char *h = getenv("COMPUTERNAME");
+    if (!h) h = getenv("HOSTNAME");
+    if (h) strncpy(host, h, sizeof(host) - 1);
 #endif
-    if (!host) host = "localhost";
 
     char os_name[256];
     get_os_name(os_name, sizeof(os_name));
@@ -194,7 +203,7 @@ int builtin_sysinfo(int argc, char **argv, ShellState *state)
                COLOR_BOLD, COLOR_RESET, mem_used, mem_total, mem_pct);
     }
     printf("  %sUptime:%s            %s\n", COLOR_BOLD, COLOR_RESET, uptime_str);
-    printf("  %sShell:%s             %s %s (Layered Modular Monolith)\n",
+    printf("  %sShell:%s             %s %s (Layered Modular)\n",
            COLOR_BOLD, COLOR_RESET, SHELL_NAME, SHELL_VERSION);
     printf("  %sActive Directory:%s  %s\n", COLOR_BOLD, COLOR_RESET, state->current_dir);
     printf("  %sSession History:%s   %d commands recorded\n",
